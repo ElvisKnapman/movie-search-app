@@ -6,8 +6,6 @@ document.getElementById('submit').addEventListener('click', (event) => {
     let searchString = `t=${document.getElementById('movie-title-search').value.split(' ').join('+')}`;
     let apiKey = '&apikey=ffa4b7e4';
 
-    console.log(`${url}${searchString}${apiKey}`);
-
     const xhr = new XMLHttpRequest();
 
     xhr.open('GET', `${url}${searchString}${apiKey}`, true);
@@ -27,6 +25,13 @@ document.getElementById('submit').addEventListener('click', (event) => {
 const parseResponse = function(response) {
     // parse the JSON response data to an object
     const movie = JSON.parse(response);
-    document.getElementById('title').innerHTML = `${movie.Title} (${movie.Year})`;
-    document.getElementById('starring').innerHTML = `Starring: ${movie.Actors}`;
+    document.getElementById('poster').innerHTML = `<img src="${movie.Poster}">`;
+    document.getElementById('title-year').innerHTML = `${movie.Title} (${movie.Year})`;
+    document.getElementById('critic-rating').innerHTML = `${movie.imdbRating}/10`;
+    document.getElementById('rated').innerHTML = `${movie.Rated}`;
+    document.getElementById('genre').innerHTML = `${movie.Genre}`;
+    document.getElementById('runtime').innerHTML = `${movie.Runtime}`;
+    document.getElementById('release-date').innerHTML= `${movie.Released}`;
+    document.getElementById('starring').innerHTML = `${movie.Actors}`;
+
 }

@@ -19,7 +19,7 @@ document.getElementById('submit').addEventListener('click', (event) => {
     
     xhr.send();
 
-    document.getElementById('movie-title-search').value = '';s
+    document.getElementById('movie-title-search').value = '';
 });
 
 
